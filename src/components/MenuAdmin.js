@@ -7,6 +7,7 @@ class MenuAdmin extends React.Component {
     <div className='order-wrap'>
     <h2>Menu Control</h2>
     <AddBurgerForm addBurger={this.props.addBurger}/>
+    <button onCLick={this.props.loadSampleBurgers}>load burgers</button>
     </div>
     );
   }
