@@ -1,83 +1,83 @@
-// Наше меню
+// Menu
 const sampleBurgers = {
   burger1: {
-    name: 'Чизбургер',
+    name: 'Cheeseburger',
     image: '/images/cheese.jpg',
     desc:
-      'Классический бургер с бифштексом из 100% говядины с маринованными огурчиками и свежей пшеничной булочкой.',
-    price: 110,
+      'Classic Burger  with  100%  grass-fed beef with pickes, and a fresh wheat bun.',
+    price: 13.99,
     status: 'available'
   },
 
   burger2: {
-    name: 'Чикенбургер',
+    name: 'Chickenburger',
     image: '/images/chicken.jpg',
     desc:
-      'Куриный бургер с добавлением расплавленного сыра, соуса Барбекю и листового салата.',
-    price: 140,
+      'Chiken patty with melted American Cheese, BBQ souce, onion, tomato, and lettuce.',
+    price: 10.99,
     status: 'available'
   },
 
   burger3: {
-    name: 'Двойной Гамбургер',
+    name: 'Double Burger',
     image: '/images/double.jpg',
     desc:
-      'Двойной гамбургер с бифштексом из 100% говядины и расплавленным сыром Чеддер и пряным соусом.',
-    price: 200,
+      'Two Beef patties with melted Cheddar and avocado.',
+    price: 12.80,
     status: 'unavailable'
   },
 
   burger4: {
-    name: 'Фишбургер',
+    name: 'Fishburger',
     image: '/images/fish.jpg',
     desc:
-      'Рыбное филе высшего качества c листовым салатом, маринованными огурчиками и преправленное легким майонезом.',
-    price: 150,
+      'Grilled Fish fillet with lettuce, homemade light mayo, and pickles.',
+    price: 13.50,
     status: 'available'
   },
 
   burger5: {
-    name: 'Картофель Фри',
+    name: 'French fries',
     image: '/images/fries.jpg',
     desc:
       'Хрустящие ломтики золотистого горячего картофеля Супер Фри, сделанные из отборного органического корнеплода!',
-    price: 85,
+    price: 4.50,
     status: 'available'
   },
 
   burger6: {
-    name: 'King Бургер',
+    name: 'King Burger',
     image: '/images/ham.jpg',
     desc:
       'Бургер из 100% отборной говядины, с жаренными ломтиками бекона и свежим расплавленным сыром, заправленный кетчупом и майонезом.',
-    price: 450,
+    price: 11.99,
     status: 'available'
   },
 
   burger7: {
-    name: 'Мега Бургер',
+    name: 'Mega Burger',
     image: '/images/mega.jpg',
     desc:
       'Наш самый большой бургер, сделанный из свежайшего бифштекса, с добавлением расплавленного сыра Чеддер и соленых огурчиков.',
-    price: 500,
+    price: 15.20,
     status: 'available'
   },
 
   burger8: {
-    name: 'Бургер в Пите',
+    name: 'Burger in pita',
     image: '/images/pita.jpg',
     desc:
       'Четыре котлеты из 100% говядины, покрытые плавленным сыром Чеддер, со свежим листовым салатом в свежей пшеничной лепешке.',
-    price: 380,
+    price: 10.99,
     status: 'available'
   },
 
   burger9: {
-    name: 'Village Фри',
+    name: 'Village fries',
     image: '/images/bakedFries.jpg',
     desc:
       'Порция свежих ломтиков картофеля, запеченых на открытом воздухе под мирно тлеющими углями',
-    price: 90,
+    price: 5.50,
     status: 'available'
   }
 };
