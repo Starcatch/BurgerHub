@@ -31,11 +31,18 @@ class App extends React.Component {
       <div className='menu'>
         <Header title="Hot Burgers" />
         <ul className='burgers'>
-
+          {Object.keys(this.state.burgers).map(key => {
+            return <Burger 
+            key={key}
+            index={key}
+            details={this.state.burgers[key]}
+            />;
+          })}
         </ul>
       </div>
       <Order/>
-      <MenuAdmin addBurger={this.addBurger}
+      <MenuAdmin 
+      addBurger={this.addBurger}
       loadSampleBurgers={this.loadSampleBurgers}
       />
     </div>
