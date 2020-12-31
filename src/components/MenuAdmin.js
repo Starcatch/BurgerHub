@@ -6,6 +6,7 @@ class MenuAdmin extends React.Component {
     return (
     <div className='order-wrap'>
     <h2>Menu Control</h2>
+    <AddBurgerForm addBurger={this.props.addBurger}/>
     </div>
     );
   }
