@@ -1,19 +1,19 @@
 // burger hubs
 const restaurants = [
   {
-    title: 'Burger Hub Cortelyou road',
-    url: 'hot-burger-cortelyou',
+    title: 'Burger Hub Ditmas Park',
+    url: 'hot-burger-ditmaspark',
     id: 1
   },
 
   {
-    title: 'Burger Hub Маросейка',
-    url: 'hot-burger-maroseyka',
+    title: 'Burger Hub Dumbo',
+    url: 'hot-burger-dumbo',
     id: 2
   },
   {
-    title: 'Burger Hub Петровка',
-    url: 'hot-burger-petrovka',
+    title: 'Burger Hub Soho',
+    url: 'hot-burger-soho',
     id: 3
   }
 ];
