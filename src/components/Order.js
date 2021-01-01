@@ -27,7 +27,7 @@ class Order extends React.Component {
   };
 
   render() {
-    const orderIds = Order.keys(this.props.order);
+    const orderIds = Object.keys(this.props.order);
     const total = orderIds.reduce((prevTotal, key) =>{
       const burger = this.props.burgers[key];
       const count = this.props.order[key];
