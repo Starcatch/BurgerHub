@@ -1,4 +1,5 @@
 import React from 'react';
+import Shipment from './Shipment'
 
 
 class Order extends React.Component {
@@ -9,12 +10,15 @@ class Order extends React.Component {
     const count = this.props.order[key];
     const isAvailable = burger && burger.status === 'available';
     if (!isAvailable) {
-      return <li className='unavailable'>
+      return (
+      <li className='unavailable' key={key}>
         Sorry, {burger ? burger.name : 'burger'} temrerary sold out
       </li>
+      );
     }
+
     return (
-      <li>
+      <li key={key}>
       <span>
         <span>{count}</span>
         items: {burger.name}
@@ -44,17 +48,15 @@ class Order extends React.Component {
     return(
       <div className='order-wrap'>
         <h2>Your Order</h2>
-        <ul className='order'>
-          {orderIds.map(this.renderOrder)}
-        </ul>
-        <div className='total'>
-          <div className='total_wrap'>
-            <div className='total_wrap-final'>
-              Total: {total}
-            </div>
+        <ul className='order'>{orderIds.map(this.renderOrder)}</ul>
 
+      {total > 0 ? (
+        <Shipment total={total} />)
+        : (
+          <div className='nothingSelected'>
+            Choose an item and add it to your order
           </div>
-        </div>
+      )}
       </div>
     );
   }
