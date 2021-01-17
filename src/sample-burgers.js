@@ -46,10 +46,10 @@ const sampleBurgers = {
   },
 
   burger6: {
-    name: 'King Burger',
+    name: 'Bison Burger',
     image: '/images/ham.jpg',
     desc:
-      'Бургер из 100% отборной говядины, с жаренными ломтиками бекона и свежим расплавленным сыром, заправленный кетчупом и майонезом.',
+      ' Wild bison patty, bacon, American Cheese, Mayo.',
     price: 11.99,
     status: 'available'
   },
@@ -58,7 +58,7 @@ const sampleBurgers = {
     name: 'Mega Burger',
     image: '/images/mega.jpg',
     desc:
-      'Наш самый большой бургер, сделанный из свежайшего бифштекса, с добавлением расплавленного сыра Чеддер и соленых огурчиков.',
+      'Two grass fed beef patties, cheddar, and pikles.',
     price: 15.20,
     status: 'available'
   },
@@ -67,7 +67,7 @@ const sampleBurgers = {
     name: 'Burger in pita',
     image: '/images/pita.jpg',
     desc:
-      'Четыре котлеты из 100% говядины, покрытые плавленным сыром Чеддер, со свежим листовым салатом в свежей пшеничной лепешке.',
+      'four small grass fed  beef patties , cheddar cheese, with lettuce, tomato, onion and freshly baked wheat pitta.',
     price: 10.99,
     status: 'available'
   },
@@ -76,7 +76,7 @@ const sampleBurgers = {
     name: 'Village fries',
     image: '/images/bakedFries.jpg',
     desc:
-      'Порция свежих ломтиков картофеля, запеченых на открытом воздухе под мирно тлеющими углями',
+      'charcoal baked potato fries',
     price: 5.50,
     status: 'available'
   }
