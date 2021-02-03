@@ -44,9 +44,28 @@ class App extends React.Component {
     this.setState({burgers})
   };
 
+  updateBurger = (key, updatedBurger) => {
+    //1.create a copy of a state object
+    const burgers = {...this.state.burgers };
+    //2. Updating the current burger
+    burgers[key] = updatedBurger;
+    //3. add updeted object burgers to state
+    this.setState({ burgers });
+  };
+
+  deleteBurger = (key) => {
+    // 1. create a copy of State Object
+    const burgers = { ...this.state.burgers };
+    // 2. Deleting the burger
+   burgers[key] = null;
+   // 3. add our updated burger object to state
+   this.setState({ burgers });
+  };
+
+
   loadSampleBurgers = () => {
     this.setState({burgers: sampleBurgers})
-  }
+  };
 
   addToOrder = (key) => {
     // 1. Create a copy of a state object
@@ -54,6 +73,15 @@ class App extends React.Component {
     // 2. Add a key to the order with the value of 1, or update a current value.
     order[key] = order[key] + 1 || 1;
     // 3. write our new object -order into state
+    this.setState({ order });
+  };
+
+  deleteFromOrder = (key) => {
+    // 1. Create a cope of the state object
+    const order = { ...this.state.order };
+    // 2. Delete the burger
+    delete order[key];
+    // 3. Add new object order to state 
     this.setState({ order });
   }
 
@@ -74,11 +102,17 @@ class App extends React.Component {
           })}
         </ul>
       </div>
-      <Order burgers={this.state.burgers} order={this.state.order}/>
+      <Order 
+        deleteFromOrder={this.deleteFromOrder}
+        burgers={this.state.burgers} 
+        order={this.state.order}
+      />
       <MenuAdmin 
       addBurger={this.addBurger}
       loadSampleBurgers={this.loadSampleBurgers}
       burgers={this.state.burgers}
+      updateBurger={this.updateBurger}
+      deleteBurger={this.deleteBurger}
       />
     </div>
     );
