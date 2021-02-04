@@ -1,71 +1,94 @@
 import React from 'react';
-import Shipment from './Shipment'
-
+import PropTypes from 'prop-types';
+import Shipment from './Shipment';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Order extends React.Component {
+  static propTypes = {
+    burgers: PropTypes.object,
+    order: PropTypes.object,
+    deleteFromOrder: PropTypes.func
+  };
 
-  renderOrder = (key) => {
-
+  renderOrder = key => {
     const burger = this.props.burgers[key];
     const count = this.props.order[key];
     const isAvailable = burger && burger.status === 'available';
-    
-    if(!burger) return null;
-    
+    const transitionOptions = {
+      classNames: 'order',
+      key,
+      timeout: { enter: 500, exit: 500 }
+    };
+    if (!burger) return null;
+
     if (!isAvailable) {
       return (
-      <li className='unavailable' key={key}>
-        Sorry, {burger ? burger.name : 'burger'} temrerary sold out
-      </li>
+        <CSSTransition {...transitionOptions}>
+          <li className='unavailable' key={key}>
+            Извините, {burger ? burger.name : 'бургер'} временно недоступен
+          </li>
+        </CSSTransition>
       );
     }
 
     return (
-      <li key={key}>
-      <span>
-        <span>{count}</span>
-        items: {burger.name}
-        <span> $ {count * burger.price} </span>
-        <button 
-        onClick={() => this.props.deleteFromOrder(key)}
-        className='cancelItem'
-        >&times;</button>
-      </span>
-    </li>
+      <CSSTransition {...transitionOptions}>
+        <li key={key}>
+          <span>
+            <TransitionGroup component='span' className='count'>
+              <CSSTransition
+                classNames='count'
+                key={count}
+                timeout={{ enter: 500, exit: 500 }}
+              >
+                <span>{count}</span>
+              </CSSTransition>
+            </TransitionGroup>
+            шт. {burger.name}
+            <span> {count * burger.price} ₽</span>
+            <button
+              onClick={() => this.props.deleteFromOrder(key)}
+              className='cancellItem'
+            >
+              &times;
+            </button>
+          </span>
+        </li>
+      </CSSTransition>
     );
-     
   };
 
   render() {
     const orderIds = Object.keys(this.props.order);
-    const total = orderIds.reduce((prevTotal, key) =>{
+    const total = orderIds.reduce((prevTotal, key) => {
       const burger = this.props.burgers[key];
       const count = this.props.order[key];
 
       const isAvailable = burger && burger.status === 'available';
       if (isAvailable) {
-        // if our burger is available then we show it in total price of the order
-          return prevTotal + burger.price * count;
+        return prevTotal + burger.price * count;
       }
-      // if the burger is not available we just return a price with out adding the burger to our total price.
-      return prevTotal 
+      return prevTotal;
     }, 0);
 
-    return(
+    return (
       <div className='order-wrap'>
-        <h2>Your Order</h2>
-        <ul className='order'>{orderIds.map(this.renderOrder)}</ul>
+        <h2>Ваш Заказ</h2>
 
-      {total > 0 ? (
-        <Shipment total={total} />)
-        : (
+        <TransitionGroup component='ul' className='order'>
+          {orderIds.map(this.renderOrder)}
+        </TransitionGroup>
+
+        {total > 0 ? (
+          <Shipment total={total} />
+        ) : (
           <div className='nothingSelected'>
-            Choose an item and add it to your order
+            Выберите блюда и добавьте к заказу
           </div>
-      )}
+        )}
       </div>
     );
   }
 }
 
-export default Order; 
+export default Order;
